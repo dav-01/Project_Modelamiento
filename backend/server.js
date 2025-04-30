@@ -8,6 +8,10 @@ const app = express();
 const port = 3000;
 
 app.use(cors());
+app.get('/', (req, res) => {
+  res.send('Servidor de cálculo numérico funcionando');
+});
+
 app.use(express.json());
 
 app.post('/calcular', (req, res) => {
