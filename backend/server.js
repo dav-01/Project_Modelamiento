@@ -20,15 +20,28 @@ app.post('/calcular', (req, res) => {
   const Y_str = `[${Y.join(',')}]`;
 
   // Crear contenido para el script temporal
-  const scriptContent = `
-  addpath(genpath("${path.dirname(metodoPath).replace(/\\/g, "/")}"));
-  x = ${x};
-  X = ${X_str};
-  Y = ${Y_str};
-  resultado = ${metodo}(x, X, Y);
-  disp("RESULTADO:");
-  disp(resultado);
-`;
+  let scriptContent = '';
+
+  if (metodo === 'mincuadlin') {
+    scriptContent = `
+      addpath(genpath("${path.dirname(metodoPath).replace(/\\/g, "/")}"));
+      X = ${X_str};
+      Y = ${Y_str};
+      [m, b] = mincuadlin(X, Y);
+      disp("RESULTADO:");
+      disp([m, b]);
+    `;
+  } else {
+    scriptContent = `
+      addpath(genpath("${path.dirname(metodoPath).replace(/\\/g, "/")}"));
+      x = ${x};
+      X = ${X_str};
+      Y = ${Y_str};
+      resultado = ${metodo}(x, X, Y);
+      disp("RESULTADO:");
+      disp(resultado);
+    `;
+  }
 
 
 
