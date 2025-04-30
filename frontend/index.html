@@ -4,30 +4,34 @@
   <meta charset="UTF-8" />
   <title>Calculadora Numérica</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>Aplicación Web de Cálculo Numérico</h1>
+  <div class="container">
+    <h1>Aplicación Web de Cálculo Numérico</h1>
 
-  <label>Método:</label>
-  <select id="metodo">
-    <option value="IntLineal">Interpolación Lineal</option>
-    <option value="PoliLagrange">Polinomio de Lagrange</option>
-    <option value="mincuadlin">Mínimos Cuadrados</option>
-  </select>
+    <label>Método:</label>
+    <select id="metodo">
+      <option value="IntLineal">Interpolación Lineal</option>
+      <option value="PoliLagrange">Polinomio de Lagrange</option>
+      <option value="mincuadlin">Mínimos Cuadrados</option>
+    </select>
 
-  <label>x:</label>
-  <input type="number" id="x" />
+    <label>x:</label>
+    <input type="number" id="x" />
 
-  <label>Vector X:</label>
-  <input type="text" id="X" placeholder="Ej: 1,2,3,4" />
+    <label>Vector X:</label>
+    <input type="text" id="X" placeholder="Ej: 1,2,3,4" />
 
-  <label>Vector Y:</label>
-  <input type="text" id="Y" placeholder="Ej: 2,4,6,8" />
+    <label>Vector Y:</label>
+    <input type="text" id="Y" placeholder="Ej: 2,4,6,8" />
 
-  <button onclick="calcular()">Calcular</button>
+    <button onclick="calcular()">Calcular</button>
 
-  <pre id="resultado"></pre>
-
+    <pre id="resultado"></pre>
+    <canvas id="grafica" width="400" height="300" style="margin-top: 20px;"></canvas>
+  </div>
   <script src="app.js"></script>
 </body>
+
 </html>
