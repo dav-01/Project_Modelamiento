@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Numérica</title>
+    <!-- Icono -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <!-- Chart.js para gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Flowbite para estilos y componentes UI -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet"/>
   </head>
 
   <body class="min-h-screen">
-    <!-- Navegación -->
+    <!-- Navegación principal -->
     <nav class="bg-white border-gray-200 dark:bg-gray-900 border-b dark:border-gray-700">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4">
         <!-- Logo y nombre de la aplicación -->
@@ -19,11 +23,11 @@
       </div>
     </nav>
 
-    <!-- Contenedor principal -->
+    <!-- Contenedor principal de la aplicación -->
     <main class="bg-gray-100 dark:bg-gray-900">
       <section class="bg-white dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-          <!-- Información sobre la aplicación de cálculo numérico -->
+          <!-- Información introductoria sobre la aplicación -->
           <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
             <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-6">Explora el poder de los métodos numéricos</h1>
             <p class="text-lg font-normal text-gray-500 dark:text-gray-400">Esta plataforma ha sido diseñada para ayudarte a resolver problemas matemáticos aplicados mediante el uso de métodos numéricos clásicos como la Interpolación Lineal, el Polinomio de Lagrange y los Mínimos Cuadrados. Ya seas estudiante, docente o profesional, aquí encontrarás herramientas intuitivas que te permitirán analizar datos y hacer predicciones de manera rápida y precisa.</p>
@@ -46,7 +50,7 @@
             </ul>
           </div>
 
-          <!-- Contenido de los tabs -->
+          <!-- Contenido de los tabs: cada uno contiene un formulario y el resultado -->
           <div id="default-tab-content">
             <!-- Interpolación Lineal -->
             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="intlineal" role="tabpanel" aria-labelledby="intlineal-tab">
@@ -55,22 +59,26 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                   <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 sm:p-6 md:p-8 w-full max-w-full overflow-x-auto">
                     <div class="max-w-sm mx-auto my-4 w-full">
+                      <!-- Campo para el valor escalar a interpolar -->
                       <div class="mb-5">
                         <label for="x-intlineal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor escalar a Interpolar (x):</label>
                         <input type="text" id="x-intlineal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1.0" required />
                       </div>
+                      <!-- Campo para el vector X -->
                       <div class="mb-5">
                         <label for="X-intlineal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vector X (separado por espacio):</label>
                         <input type="text" id="X-intlineal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="1 2 3 4 5 6"/>
                       </div>
+                      <!-- Campo para el vector Y -->
                       <div class="mb-5">
                         <label for="Y-intlineal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vector Y (separado por espacio):</label>
                         <input type="text" id="Y-intlineal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="1 3 -1 0 3 2"/>
                       </div>
+                      <!-- Botón para calcular -->
                       <button id="btn-calcular-intlineal" onclick="calcular('IntLineal')" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Calcular</button>
                     </div>
                   </div>
-                  <!-- Resultado para la Interpolación Lineal -->
+                  <!-- Resultado y gráfica para la Interpolación Lineal -->
                   <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 sm:p-6 md:p-8 w-full max-w-full overflow-x-auto">
                     <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Valor Interpolado (y)</h2>
                     <pre id="resultado-intlineal" class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300 break-words whitespace-pre-wrap max-w-full overflow-x-auto"></pre>
@@ -88,22 +96,26 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                   <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 sm:p-6 md:p-8 w-full max-w-full overflow-x-auto">
                     <div class="max-w-sm mx-auto my-4 w-full">
+                      <!-- Campo para el valor escalar a interpolar -->
                       <div class="mb-5">
                         <label for="x-lagrange" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor escalar a Interpolar (x):</label>
                         <input type="text" id="x-lagrange" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1.0" required />
                       </div>
+                      <!-- Campo para el vector X -->
                       <div class="mb-5">
                         <label for="X-lagrange" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vector X (separado por espacio):</label>
                         <input type="text" id="X-lagrange" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="1 2 3 4 5 6"/>
                       </div>
+                      <!-- Campo para el vector Y -->
                       <div class="mb-5">
                         <label for="Y-lagrange" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vector Y (separado por espacio):</label>
                         <input type="text" id="Y-lagrange" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="1 3 -1 0 3 2"/>
                       </div>
+                      <!-- Botón para calcular -->
                       <button id="btn-calcular-lagrange" onclick="calcular('PoliLagrange')" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Calcular</button>
                     </div>
                   </div>
-                  <!-- Resultado para Polinomio de Lagrange -->
+                  <!-- Resultado y gráfica para Polinomio de Lagrange -->
                   <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 sm:p-6 md:p-8 w-full max-w-full overflow-x-auto">
                     <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Valor Interpolado (y)</h2>
                     <pre id="resultado-lagrange" class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300 break-words whitespace-pre-wrap max-w-full overflow-x-auto"></pre>
@@ -121,18 +133,21 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                   <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 sm:p-6 md:p-8 w-full max-w-full overflow-x-auto">
                     <div class="max-w-sm mx-auto my-4 w-full">
+                      <!-- Campo para el vector X -->
                       <div class="mb-5">
                         <label for="X-mincuadlin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vector X (separado por espacio):</label>
                         <input type="text" id="X-mincuadlin" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="1 2 3 4 5 6"/>
                       </div>
+                      <!-- Campo para el vector Y -->
                       <div class="mb-5">
                         <label for="Y-mincuadlin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vector Y (separado por espacio):</label>
                         <input type="text" id="Y-mincuadlin" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="1 3 -1 0 3 2"/>
                       </div>
+                      <!-- Botón para calcular -->
                       <button id="btn-calcular-mincuadlin" onclick="calcular('mincuadlin')" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Calcular</button>
                     </div>
                   </div>
-                  <!-- Resultado para Mínimos Cuadrados -->
+                  <!-- Resultado y gráfica para Mínimos Cuadrados -->
                   <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 sm:p-6 md:p-8 w-full max-w-full overflow-x-auto">
                     <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Pendiente (m) e intercepto (b) de la recta de aproximación</h2>
                     <pre id="resultado-mincuadlin" class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300 break-words whitespace-pre-wrap max-w-full overflow-x-auto"></pre>
@@ -148,7 +163,7 @@
       </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer de la aplicación -->
     <footer class="bg-white dark:bg-gray-900 border-t dark:border-gray-700">
       <div class="flex items-center py-6 justify-center">
         <span class="text-base text-gray-500 text-center dark:text-gray-200"
@@ -159,7 +174,7 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts de la aplicación -->
     <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   </body>
