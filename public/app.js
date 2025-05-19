@@ -10,7 +10,7 @@
  */
 
 let chart = null;
-const API_URL = "http://localhost:3000";
+const API_URL = "https://projectmodelamiento-production.up.railway.app";
 
 /**
  * Muestra un mensaje de error en el elemento resultado correspondiente.
