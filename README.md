@@ -28,5 +28,5 @@ Aplicación web interactiva que permite ingresar datos numéricos y aplicar dist
 - Selección de método numérico
 - Visualización de resultados
 
-
-## Enlace al proyecto: https://dav-01.github.io/Project_Modelamiento/
+## Enlace al proyecto: 
+https://dav-01.github.io/Project_Modelamiento/
