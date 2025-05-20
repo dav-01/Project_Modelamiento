@@ -29,7 +29,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-  origin: 'https://dav-01.github.io/Project_Modelamiento/',
+  origin: 'https://dav-01.github.io',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
