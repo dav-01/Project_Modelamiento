@@ -28,7 +28,12 @@ const execAsync = util.promisify(exec);
 const app = express();
 const port = 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://dav-01.github.io',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 
